@@ -1,0 +1,77 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    flex-direction: column;
+    text-align: center;
+  }
+#acceuil{
+    height: 100vh;
+    width: 100%;
+    background-image: url(img/upscalemedia-transformed.jpeg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    background: linear-gradient(to top, rgba(0,0,0,0.4)50%,rgba(0,0,0,0.4)50%);
+    padding: 10px;
+    justify-content:space-between;
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+}
+#img{
+    float: left;
+    align-items: center;
+}
+ul{
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+li a{
+    text-decoration: none;
+    color: #e4ab8e;
+    padding: 20px;
+    font-size: 20px;
+}
+li a:hover{
+    color: #141dbe;
+    transition: 0.3s;
+}
+.animation{
+    font-family: 'oswald', sans-serif;
+    font-size: 200%;
+    font-weight: bold;
+    color: #f3f3f3;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#animatedText {    
+    /* 2. Appliquer le dégradé en arrière-plan */
+    background-image: linear-gradient(
+        45deg,          /* Angle de 45 degrés */
+        #ff00cc,        /* Couleur de départ (Magenta) */
+        #3333ff         /* Couleur de fin (Bleu) */
+    );
+    
+    /* 3. Découper l'arrière-plan pour qu'il ne remplisse que le texte */
+    -webkit-background-clip: text; /* Préfixe pour la compatibilité WebKit (Chrome, Safari) */
+    background-clip: text;
+    
+    /* 4. Rendre le texte transparent pour que l'arrière-plan soit visible */
+    -webkit-text-fill-color: transparent; /* Préfixe WebKit */
+    color: transparent;                   /* Standard CSS */
+}
+#a-propos{
+    height: 100vh;
+    width: 100%;
+}
