@@ -36,3 +36,24 @@ function animateWord() {
 
 // Lancer l'animation
 animateWord();
+
+//Pour changer le thème
+const colorToggle = document.getElementById("color");
+const soleil = document.getElementById("soleil");
+const lune = document.getElementById("lune");
+const francais = document.getElementById("francais");
+const anglais = document.getElementById("anglais");
+const body = document.querySelector("body");
+colorToggle.addEventListener("click", () => {
+    if(body.classList.contains('dark')){
+        body.classList.add('light');
+        body.classList.remove('dark');
+        soleil.style.display = "none"
+        lune.style.display = "block"
+    }else{
+        body.classList.add('dark');
+        body.classList.remove('light');
+        soleil.style.display = "block"
+        lune.style.display = "none"
+    }
+})
