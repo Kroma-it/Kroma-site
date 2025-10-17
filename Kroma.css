@@ -10,54 +10,20 @@ body {
     text-align: center;
 }
 body.dark{
-    background: linear-gradient(to right, #040f38, #0a1080, #040f38);
-    color: #f3f3f3;
+    background: linear-gradient(to right, #040f38, #0f17aa, #040f38);
+    #texte{color:#f3f3f3;}
+    #histoire{color:#f3f3f3;}
+}
+body.light{
+  background: linear-gradient(to right, #e4ab8e, #f3f3f3, #e4ab8e);
+  #texte{color:#061753;}
+  #histoire{color:#061753;}
 }
 section {
     display: flex;
     align-items: center;
     scroll-margin-top: 150px;
 }
-header {
-    position: fixed; /* sticky fonctionne mais fixed est plus sûr pour superposition */
-    top: 0;
-    left: 0;
-    width: 100%; /* s’assurer qu’il couvre toute la largeur */
-    z-index: 1000; /* au-dessus de #acceuil */
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.6) 50%);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    backdrop-filter: blur(15px);
-}
-.sous-mode{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: #e4ab8e;
-    border: 2px solid #0A1850;
-    border-radius: 30px;
-}
-.mode{
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    transform: scale(1.1);
-    float: right;
-    margin-right: 50px;
-}
-#acceuil {
-    height: 100vh;
-    width: 100%;
-    position: relative; /* ok */
-    background: url("img/Firefly_Génère moi une image avec du néon couleur violet bleu dans la nature 962653.jpg") no-repeat center center/cover;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 0 50% 50% / 0 0 10% 10%;
-    z-index: 1; /* moins que header pour que menu reste au-dessus */
-    margin-top: 0; /* pas de marge */
-}
-
 #img{
     float: left;
     align-items: center;
@@ -77,6 +43,48 @@ li a{
 li a:hover{
     color: #141dbe;
     transition: 0.3s;
+}
+header {
+    position: fixed; /* sticky fonctionne mais fixed est plus sûr pour superposition */
+    top: 0;
+    left: 0;
+    width: 100%; /* s’assurer qu’il couvre toute la largeur */
+    z-index: 1000; /* au-dessus de #acceuil */
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.6) 50%);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    backdrop-filter: blur(15px);
+}
+.mode{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*ça c'est pour le changement de thème et de couleur*/
+    canvas {
+      background: #fff;
+      border-radius: 40px;
+      cursor: pointer;
+      transform: scale(0.7);
+    }
+
+
+#acceuil {
+    height: 100vh;
+    width: 100%;
+    position: relative; /* ok */
+    background: url("img/Firefly_Génère moi une image avec du néon couleur violet bleu dans la nature 962653.jpg") no-repeat center center/cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 50% 50% / 0 0 10% 10%;
+    z-index: 1; /* moins que header pour que menu reste au-dessus */
+    margin-top: 0; /* pas de marge */
 }
 .animation{
     font-family: 'oswald', sans-serif;
@@ -122,40 +130,20 @@ hr{
     border: none;
     border-radius: 100%;
 }
-p{
+#histoire{
     width: 80%;
     font-size: 30px;
 }
-.card-title {
-  display: flex;              /* aligne l'image et le texte sur la même ligne */
-  align-items: center;        /* centre verticalement */
-  justify-content: center;    /* centre le tout dans la carte */
-  gap: 10px;                  /* espace entre l’image et le titre */
-  margin-bottom: 10px;
-}
-
-
 .card-title h3 {
   font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0;
+  text-align: center;
 }
-
-.section-cards {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-#el p{color: #f3f3f3;}
 .card {
   flex: 1;
   max-width: 280px;
   background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
   border-radius: 20px;
   padding: 30px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
@@ -166,10 +154,6 @@ p{
 .card img {
   width: 50px;
   height: 50px;
-}
-
-.card h3 {
-  font-size: 1.6rem;
 }
 
 /* Vision */
@@ -200,8 +184,7 @@ p{
 }
 
 .card p {
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 1.5rem;
   line-height: 1.5;
 }
 #domaines{
@@ -209,32 +192,7 @@ p{
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-}/*
-.logos{
-  width: 600px;
-  height: 700px;
-  border-radius: 20px;
-  border: 2px solid #1822e7;
-  background-color: #d6a25e;
-
 }
-.supports{
-  width: 600px;
-  height: 700px;
-  border-radius: 20px;
-  border: 2px solid #1822e7;
-  background-color: #0A1850;
-}
-.solutions{
-  width: 600px;
-  height: 700px;
-  border-radius: 20px;
-  border: 2px solid #1822e7;
-  background-color: #2da860;
-
-}
-
-*/
 
 .card-title {
   display: flex;              /* aligne l'image et le texte sur la même ligne */
@@ -258,16 +216,7 @@ p{
   gap: 40px;
   flex-wrap: wrap;
 }
-#el p{color: #f3f3f3;}/*
-.card {
-  flex: 1;
-  max-width: 280px;
-  background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
-  border-radius: 20px;
-  padding: 30px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}*/
+#el p{color: #f3f3f3;}/* Couleur du texte dans les cartes */
 
 .card:hover {
   transform: translateY(-5px);
@@ -280,4 +229,27 @@ p{
 
 .card h3 {
   font-size: 1.6rem;
+}
+
+
+@media (max-width:1280px){
+li a{
+    padding: 15px;
+    font-size: 13px;
+}
+ul{margin: 0;}
+#img img{height: 70px; width: 110px;}
+canvas{transform: scale(0.4); margin-top: -20px;}
+header{height: 70px;}
+.animation{font-size: 120%;}
+#acceuil{border-radius: 0 0 50% 50% / 0 0 5% 5%;}
+h1{font-size: 40px;}
+hr{
+    width: 50%;
+    height: 7px;
+}
+#histoire{font-size: 18px;}
+}
+@media (max-width:900px){
+
 }

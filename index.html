@@ -22,14 +22,8 @@
             <li><a href="#contacts">Contacts</a></li>
         </ul>
         <div class="mode">
-            <div class="sous-mode" id="color">
-                <img src="img/soleil1.png" id="soleil" width="35px" height="35px" alt="">
-                <img src="img/pleine-lune.png" id="lune" width="35px" height="35px" alt="">
-            </div>
-            <div class="sous-mode" id="langue">
-                <img src="img/france.png" id="francais" width="35px" height="35px" alt="">
-                <img src="img/anglais.png" id="anglais" width="35px" height="35px" alt="" srcset="">
-            </div>
+            <canvas id="color" width="120" height="60"></canvas>
+            <canvas id="language" width="120" height="60"></canvas>
         </div>
     </header>
 
@@ -42,12 +36,12 @@
 
     <section id="a-propos">
         <h1>Derrière le nom '<span id="animatedText">Kroma</span>'</h1><hr>
-        <p>
+        <p id="histoire" id="texte">
             Fondé avec une passion pour le design, l’innovation et de désir de créer quelque chose de grand, 
             Kroma accompagne les entreprises et créateurs dans la construction de leur identité visuelle pour les 
             permettre d’être plus grand aux yeux du monde. <br>
             Elle est une agence où créativité et efficacité se rencontrent. Ici, chaque projet est une aventure, chaque visuel raconte une histoire,
-            et chaque site web est conçu pour captiver et convertir. Kroma n’est pas juste une startup, c’est un partenaire qui accompagne ses clients pour que leur image
+            et chaque site web est conçu pour captiver et convertir. Kroma c’est un partenaire qui accompagne ses clients pour que leur image
             reflète vraiment leur vision et attire l’attention qu’elle mérite. <br>
             Avec un mélange d’audace, de clarté et de passion, nous transformons les idées en réalisations mémorables...
         </p>
@@ -58,7 +52,7 @@
                     <img src="img/vision.png" alt="Vision">
                     <h3>Notre vision</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Transformer les idées en visuels percutants qui suscitent l’émotion et l’engagement
                 </p>
             </div>
@@ -68,7 +62,7 @@
                     <img src="img/objectif.png" alt="Mission">
                     <h3>Notre mission</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Offrir des solutions de design accessibles, modernes et adaptées à un client
                 </p>
             </div>
@@ -78,7 +72,7 @@
                     <img src="img/valeur.png" alt="Valeurs">
                     <h3>Nos valeurs</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Créativité, authenticité et rapidité sont au cœur de chaque projet que nous réalisons
                 </p>
             </div>
@@ -86,42 +80,6 @@
 
     </section>
 
-    <section id="domaines">
-        <h1>Nos domaines d'expertise</h1> <hr>
-
-        <section class="section-cards">
-            <div id="el" class="card logos">
-                <div class="card-title">
-                    <img src="img/logo logo.png" alt="Vision">
-                    <h3>Création de logos</h3>
-                </div>
-                <p>
-                Transformer les idées en visuels percutants qui suscitent l’émotion et l’engagement
-                </p>
-            </div>
-
-            <div id="el" class="card visuels">
-                <div class="card-title">
-                    <img src="img/logo site.png" alt="Mission">
-                    <h3>Supports visuels</h3>
-                </div>
-                <p>
-                Offrir des solutions de design accessibles, modernes et adaptées à un client
-                </p>
-            </div>
-
-            <div id="el" class="card solutions">
-                <div class="card-title">
-                    <img src="img/logo solution.png" alt="Valeurs">
-                    <h3>Solutions digitales</h3>
-                </div>
-                <p>
-                Créativité, authenticité et rapidité sont au cœur de chaque projet que nous réalisons
-                </p>
-            </div>
-        </section>
-
-    </section>
 
     <script src="Kroma.js"></script>
 </body>
