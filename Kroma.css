@@ -10,7 +10,7 @@ body {
     text-align: center;
 }
 body.dark{
-    background: linear-gradient(to right, #040f38, #0f17aa, #040f38);
+    background: linear-gradient(to right, #040f38, #1018af, #040f38);
     #texte{color:#f3f3f3;}
     #histoire{color:#f3f3f3;}
 }
@@ -54,7 +54,7 @@ header {
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px) ;
 }
 .mode{
     cursor: pointer;
@@ -232,6 +232,258 @@ hr{
 }
 
 
+
+/* --- Section principale --- */
+#Realisations {
+  display: flex;
+  flex-direction: column;   /* disposition verticale */
+  align-items: center;      /* centrer horizontalement */
+  padding: 40px 0;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+
+}
+#realisation {
+  background-color: #0909a7;
+  width: 500px;   /* Largeur de la div */
+  height: 100px;  /* Hauteur de la div */
+  border-radius: 50px 0 50px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.separator {
+  width: 80%;                     /* largeur du séparateur */
+  height: 3px;                    /* épaisseur de la ligne */
+  margin: 40px auto;              /* espace avant et après la ligne */
+  border-radius: 2px;             /* coins doux */
+
+}
+
+/* ===== Titre ===== */
+#realisation h1 {
+ 
+text-align: center;            /* centre le texte */
+  font-size: 2.7em;                /* taille du texte */
+  letter-spacing: 5px;           /* espace entre les lettres */
+  line-height: 1.3em;            /* espace vertical entre les mots */
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Conteneur des images ===== */
+#section-img {
+  position: relative;
+  width: 380px;
+  height: 800px;
+}
+
+/* ===== Style commun des cartes ===== */
+#section-img div {
+  position: absolute;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+#section-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Positionnement des cartes ===== */
+
+/* Image du haut — même axe vertical que la 3ème */
+#img-1 {
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+/* Image du milieu — entre les deux, mais décalée vers la droite */
+#img-2 {
+  top: 280px;      /* un peu plus bas que 180px pour plus d'espacement */
+  left: 50px;      /* décalée vers la droite */
+  z-index: 2;
+}
+
+/* Image du bas — même position horizontale que la 1ère */
+#img-3 {
+  top: 560px;      /* même espace entre les images */
+  left: 0;
+  z-index: 1;
+}
+
+/* ===== Effet au survol ===== */
+#section-img div:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* ===== Séparateur optionnel ===== */
+.separator {
+  width: 70%;
+  height: 3px;
+  margin: 60px auto;
+  border-radius: 2px;
+}
+#mini{
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mini h1{
+   
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ===== Conteneur des cartes ===== */
+#dm-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 25px;                  /* espace horizontal entre les cartes */
+  flex-wrap: wrap;            /* s’adapte sur mobile */
+  padding: 60px 40px;
+  background-color: #f8f8f8;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Style général des cartes ===== */
+#dm {
+  flex: 1;
+  max-width: 280px;
+  min-height: 320px;
+  border-radius: 20px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Effet de survol ===== */
+#dm:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== En-tête de chaque carte ===== */
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-title img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.card-title h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ===== Texte des cartes ===== */
+#dm p {color: #ffffff;}/*
+.card {
+  flex: 1;
+  max-width: 280px;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}*/
+
+/* ===== Couleurs spécifiques ===== */
+.logos {
+  background-color: #eab39b; /* rose pastel / saumon */
+}
+
+.visuels {
+  background-color: #001b4d; /* bleu nuit profond */
+}
+
+.solutions {
+  background-color: #31b594; /* vert turquoise */
+}
+.img-5 p, .img-6 p, .img-7 p, .img-8 p {
+    display: flex; /* Aligne les mots horizontalement */
+    font-size: 0.8em; /* Réduit la taille de la police */
+    margin: 0; /* Supprime les marges par défaut */
+    
+}
+
+.img-5 p span, .img-6 p span, .img-7 p span, .img-8 p span {
+    margin-right: 5px; /* Ajoute un espace entre les mots */
+}
+
+/* ===== SECTION MINI ===== */
+#mini.section-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 80px;                       /* espace entre les blocs */
+  padding: 25px 0;
+  background: rgba(220, 220, 220, 0.7); /* fond gris clair avec transparence */
+  backdrop-filter: blur(10px);    /* effet de flou en arrière-plan */
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== BLOCS INDIVIDUELS ===== */
+#mini .img-5,
+#mini .img-6,
+#mini .img-7,
+#mini .img-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== IMAGES ===== */
+#mini img {
+  width: 55px;                     /* taille icônes */
+  height: auto;
+  margin-bottom: 8px;
+  filter: brightness(0);           /* icônes noires */
+}
+
+/* ===== TEXTES ===== */
+#mini p {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* pour l’espacement harmonieux entre les mots */
+#mini p span {
+  margin: 0 2px;
+}
 @media (max-width:1280px){
 li a{
     padding: 15px;

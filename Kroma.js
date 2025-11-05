@@ -36,8 +36,10 @@ function animateWord() {
 
 // Lancer l'animation
 animateWord();
+//FIN ANIMATION DE PAGE D'ACCEUIL
 
 
+//ANIMATION CHANGEMENT DE LANGUE
     const sun = new Image();
     const moon = new Image();
     const france = new Image();
@@ -97,7 +99,7 @@ animateWord();
       }
 
       animate(target) {
-        const step = target > this.position ? 4 : -4;
+        const step = target > this.position ? 6 : -6;
         const animate = () => {
           this.position += step;
           this.draw();
