@@ -14,29 +14,58 @@
         <div id="img">
         <img src="img/logoNom.svg" height="100px" width="140px" alt="Logo"></div>
         <ul>
-            <li><a href="#acceuil">Acceuil</a></li>
-            <li><a href="#a-propos">A propos</a></li>
-            <li><a href="#domaines">Nos domaines</a></li>
-            <li><a href="#realisations">Réalisations</a></li>
-            <li><a href="#avis">Avis-clients</a></li>
-            <li><a href="#contacts">Contacts</a></li>
+            <li><a href="#acceuil" id="headAcceuil">Acceuil</a></li>
+            <li><a href="#a-propos" id="headPropos">A propos</a></li>
+            <li><a href="#domaines" id="headDomaine">Nos domaines</a></li>
+            <li><a href="#realisations" id="headRea">Réalisations</a></li>
+            <li><a href="#avis" id="headAvis">Avis-clients</a></li>
+            <li><a href="#contacts" id="headContact">Contacts</a></li>
         </ul>
         <div class="mode">
             <canvas id="color" width="120" height="60"></canvas>
-            <canvas id="language" width="120" height="60"></canvas>
+            <canvas id="language" width="120" height="60" class="fr"></canvas>
         </div>
     </header>
+    
+    <button class="open-btn" onclick="openMenu()">☰ Menu</button>
+    <div class="autre">
+        <div class="overlay" onclick="closeMenu()" id="overlay"></div>
+    </div>
+    <div class="autre">
+        <div class="sidebar" id="sidebar">
+            <a href="#acceuil" id="onglet">Accueil</a>
+            <a href="#a-propos">A propos</a>
+            <a href="#domaines">Nos domaines </a>
+            <a href="#realisations">Réalisations</a>
+            <a href="#avis">Avis-clients</a>
+            <a href="#contacts">Contacts</a>
+        </div>
+    </div>
 
+    <button class="open-btn" onclick="openMenu()">☰ Menu</button>
+    <div class="autre">
+        <div class="overlay" onclick="closeMenu()" id="overlay"></div>
+    </div>
+    <div class="autre">
+        <div class="sidebar" id="sidebar">
+            <a href="#acceuil">Accueil</a>
+            <a href="#a-propos">A propos</a>
+            <a href="#domaines">Nos domaines</a>
+            <a href="#realisations">Réalisations</a>
+            <a href="#avis">Avis-clients</a>
+            <a href="#contacts">Contacts</a>
+        </div>
+    </div>
     <section id="acceuil">
         <div class="animation">
-            <div>Bienvenue dans un nouvel univers,</div>
-            <div>Bienvenue chez <span id="animatedText"></span></div>
+            <div id="welcomeUnivers">Bienvenue dans un nouvel univers,</div>
+            <div id="welcomeKroma">Bienvenue chez <span id="animatedText"></span></div>
         </div>
     </section>
 
     <section id="a-propos">
         <h1>Derrière le nom '<span id="animatedText">Kroma</span>'</h1><hr>
-        <p id="histoire" id="texte">
+        <p id="histoire">
             Fondé avec une passion pour le design, l’innovation et de désir de créer quelque chose de grand, 
             Kroma accompagne les entreprises et créateurs dans la construction de leur identité visuelle pour les 
             permettre d’être plus grand aux yeux du monde. <br>
@@ -126,58 +155,175 @@
 
     </section>
 
-    <section id="Realisations">
-        <div id="realisation" class="realisation">
-            <h1>Nos Realisations</h1>
+    
+    <!-- Nos réalisations -->
+    <!--<section class="realisations" aria-labelledby="realTitle" id="realisations">
+        <div id="reaTitle">
+          <h3 id="realTitle">Nos réalisations</h3>
         </div>
-        <div class="separator" ></div>
-        
-        <section id="section-img"  class="section-img" >
-           <div id="img-1" class="img-1">
-             <img src="img/img logo.png"  width="300px" height=" 400px"  alt="realisation">
-           </div>
-           <div class="separator"></div>
-           <div id="img-2" class="img-2">
-             <img src="img/img flyers.png" width="300px" height="400px" alt="realisation">
-           </div>
-           <div class="separator"></div>
-           <div  class="img-3" id="img-3">
-             <img src="img/img site.png" width="300px" height="400px" alt="realisation">
-           </div>
+        <div style="opacity:.7">Voir tout →</div>
 
-        </section>
-        <div class="separator"></div>
+      <div class="stack-wrap" aria-hidden="false">
+        <div class="stack" id="stack" aria-label="Galerie superposée">-->
+          <!-- 5 tiles - images from Unsplash (replace as needed) -->
+          <!--<div class="tile i0" data-index="0" tabindex="0" aria-label="Project A">
+            <img src="img/img flyers.png" alt="Project A">
+            <div class="chip">Project A</div>
+          </div>
+
+          <div class="tile i1" data-index="1" tabindex="0" aria-label="Project B">
+            <img src="img/img logo.png" alt="Project B">
+            <div class="chip">Project B</div>
+          </div>
+
+          <div class="tile i2" data-index="2" tabindex="0" aria-label="Project C">
+            <img src="img/img site.png" alt="Project C">
+            <div class="chip">Project C</div>
+          </div>
+
+          <div class="tile i3" data-index="3" tabindex="0" aria-label="Project D">
+            <img src="https://images.unsplash.com/photo-1508898578281-774ac4893a6b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f7e8b9a3c4d2e1f6a7b8c9d0e1f2a3b" alt="Project D">
+            <div class="chip">Project D</div>
+          </div>
+
+          <div class="tile i4" data-index="4" tabindex="0" aria-label="Project E">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d" alt="Project E">
+            <div class="chip">Project E</div>
+          </div>
+        </div>
+      </div>
+    </section>-->
+
+    <!-- LIGHTBOX (hidden initially) -->
+    <!-- <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Aperçu image">
+        <button class="lb-arrow left" id="lbPrev" aria-label="Image précédente">◀</button>
+        <img id="lbImg" class="lightbox-img" src="" alt="Aperçu agrandi">
+        <button class="lb-arrow right" id="lbNext" aria-label="Image suivante">▶</button>
+        <button class="lb-close" id="lbClose" aria-label="Fermer la fenêtre">✕</button>
+        </div>
+    </div>-->
+    <section id="realisations">
+        <div id="reaTitle">
+          <h3 id="realTitle">Nos réalisations</h3>
+        </div>
+
+        <div id="logoDesign">
+            <img src="img/img logo.png" onclick="openImg()" height="300px" width="300px" alt="">
+            <div id="projects">
+                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/E-Concept.jpg" alt="">
+            </div>
+        </div>
+        <div id="webDesign">
+            <img src="img/img site.png" height="300px" width="300px" alt="">
+        </div>
+        <div id="visuals">
+            <img src="img/img flyers.png" height="300px" width="300px" alt="">
+        </div>
+    </section>
+
+
+    <div class="stat">
+        <div id="satisfaits" class="x">
+            <img src="img/satisfaction.png" height="60px" width="60px" alt="">
+            <p>5 clients satisfaits</p>
+        </div>
+        <div id="experts" class="x">
+            <img src="img/experts.png" height="60px" width="60px" alt="">
+            <p>5 experts</p>
+        </div>
+        <div id="experience" class="x">
+            <img src="img/expérience.png" height="60px" width="60px" alt="">
+            <p>8 mois d'expériences</p>
+        </div>
+        <div id="projets" class="x">
+            <img src="img/projet.png" alt="" height="60px" width="60px" srcset="">
+            <p>8 projets réalisés</p>
+        </div>
+    </div>
+    
+    <!-- Clients -->
+    <section id="avis">
+        <div id="client">
+            <p id="comment">
+                Le flyer est propre ca respecte assez les spécifications/indications que je t’ai donné
+                    pour la réalisation. Aussi les informations sont bien disposées et suffisamment lisible. 
+             Ça aurait pu être meilleur avec un plus grand délai pour la livraison mais ça a largement fait l’affaire.
+            </p>
+            <p id="name">M. Krixian SIAKAM</p>
+        </div>
+        <div id="client">
+            <p id="comment">
+                Je trouve le concept très innovant, j'ai déjà eu à demander l'un de leur service et j'ai été
+                 très satisfait par une équipe dynamique, qui m'a aidé pour une visibilité iconique et désigner
+                  mon face de mon business
+            </p>
+            <p id="name">M. Gianny FOAPA</p>
+        </div>
+        <div id="client">
+            <p id="comment">
+                Le flyer est propre ca respecte assez les spécifications/indications que je t’ai donné
+                    pour la réalisation. Aussi les informations sont bien disposées et suffisamment lisible. 
+             Ça aurait pu être meilleur avec un plus grand délai pour la livraison mais ça a largement fait l’affaire.
+            </p>
+            <p id="name">M. Krixian SIAKAM</p>
+        </div>
+    </section>
+    
+    <section id="contacts">
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+
+            <!-- Bloc gauche -->
+                <div class="footer-section" id="texte">
+                    <div class="footer-logo">
+                        <img src="img/logoNom2.svg" alt="Logo Kroma" />
+                    </div>
+                    <p><strong>Adresse :</strong> Université de Yaoundé I, Cameroun</p>
+                    <p><strong>Email :</strong> <a href="mailto:kroma.agence@gmail.com">kroma.agence@gmail.com</a></p>
+
+                    <div class="footer-socials">
+                        <a href="#"><img src="img/linkedin.png" alt="LinkedIn" ></a>
+                        <a href="https://github.com/orgs/Kroma-it"><img src="img/github.png" alt="GitHub"></a>
+                        <a href="mailto:kroma.agence@gmail.com"><img src="img/gmail.png" alt="Gmail"></a>
+                    </div>
+                </div>
+
+            <!-- Bloc centre -->
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                <li><a href="#acceuil">Accueil</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#domaines">Nos domaines</a></li>
+                <li><a href="#realiastions">Réalisations</a></li>
+                <li><a href="#avis">Avis-clients</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+                </ul>
+            </div>
+
+            <!-- Bloc droite -->
+            <div class="footer-section">
+                <h3>Expertise</h3>
+                <ul>
+                <li><a href="#">Création de logos</a></li>
+                <li><a href="#">Supports visuels</a></li>
+                <li><a href="#">Conception de sites web</a></li>
+                <li><a href="#">Solutions digitales</a></li>
+                </ul>
+            </div>
+
+            </div>
+        </footer>
 
 
     </section>
-
-    <div class="separator"></div>
-    <section id="mini" class="section-cards">
-        <div id="mini-bul" class="bul">
-          
-
-          
-        </div>
-
-        <div id="img-r" class="img-5">
-          <img src="img/clients.svg" alt="clients satisfaits">
-          <p><span>5</span> <span>clients</span> <span>satisfaits</span></p>
-         </div>
-        <div id="img-r" class="img-6">
-         <img src="img/client2.svg" alt="nos experts">
-        <p><span>Experts</span></p>
-        </div>
-        <div id="img-r" class="img-7">
-         <img src="img/diagramme-a-bandes.png" alt="experiences">
-         <p><span>8</span> <span>mois</span> <span>d'experiences</span></p>
-        </div>
-        <div id="img-r" class="img-8">
-          <img src="img/idee.png" alt="projets realises">
-          <p><span>8</span> <span>projets</span> <span>réalisés</span></p>
-        </div>
-
-    </section>
-
 
     <script src="Kroma.js"></script>
 </body>

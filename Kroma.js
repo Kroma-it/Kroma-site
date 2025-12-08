@@ -1,6 +1,12 @@
 
 const textElement = document.getElementById("animatedText");
-const words = ["vous", "Kroma"]; // mots à animer
+const wordsFr = ["vous", "Kroma"]; // mots à animer
+const wordsEn = ["your home", "Kroma"]; // mots à animer
+if (document.querySelector("#language").getAttribute("class") === "fr") {
+  var words = wordsFr;
+} else {
+  var words = wordsEn;
+}
 let currentWord = 0;
 
 function animateWord() {
@@ -92,14 +98,14 @@ animateWord();
         ctx.beginPath();
         ctx.arc(this.position, this.canvas.height / 2, 24, 0, Math.PI * 2);
         ctx.fillStyle = '#fff';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.83)';
         ctx.shadowBlur = 8;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
 
       animate(target) {
-        const step = target > this.position ? 6 : -6;
+        const step = target > this.position ? 4 : -4;
         const animate = () => {
           this.position += step;
           this.draw();
@@ -130,14 +136,63 @@ animateWord();
       document.body.className = isOn ? 'light' : 'dark';
     });
 
+
+    
     // Bouton Langue (Français / Anglais)
     new ToggleButton(document.getElementById('language'), [france, uk], (isOn) => {
-      console.log(isOn ? 'Langue : Anglais' : 'Langue : Français');
+      document.querySelector("#language").className = isOn ? 'en' : 'fr'
+      //Sélection des éléments
+
+      const home = document.querySelector('#headAcceuil')
+      const prop = document.querySelector("#headPropos")
+      const domaine = document.querySelector("#headDomaine")
+      const rea = document.querySelector("#headRea")
+      const avis = document.querySelector("#headAvis")
+      const contact = document.querySelector("#headContact")
+      const ul = document.querySelector("ul")
+      const welcomeUnivers = document.querySelector("#welcomeUnivers")
+      const welcomeKroma = document.querySelector("#welcomeKroma")
+      const aboutTitle = document.querySelector("h1")
+      const aboutText = document.querySelector("#histoire")
+      const titleMission = document.querySelector(".card mission h1")
+      const titleVision = document.querySelector(".card vision h1")
+      const titleValeurs = document.querySelector(".card valeurs h1")
+      const el2 = document.querySelectorAll("h3")
+      
+      const el = document.querySelector('#language')
+      const attr = el.getAttribute("class")
+      
+      ul.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      welcomeUnivers.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      welcomeKroma.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      aboutTitle.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      aboutText.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      el2.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      
+
+      setTimeout(() => {
+        home.textContent = translations[attr].accueil
+        prop.textContent = translations[attr].a_propos
+        domaine.textContent = translations[attr].domaines
+        rea.textContent = translations[attr].realisations
+        avis.textContent = translations[attr].avis
+        contact.textContent = translations[attr].contacts
+        welcomeUnivers.textContent = translations[attr].welcome_universe
+        welcomeKroma.innerHTML = translations[attr].welcome_kroma
+        aboutTitle.innerHTML = translations[attr].aboutTitle
+        aboutText.innerHTML = translations[attr].aboutText
+
+        ul.style.animation = 'fadeLeftIn 0.5s ease forwards'
+        welcomeUnivers.style.animation = "fadeLeftIn 0.5s ease forwards"
+        welcomeKroma.style.animation = "fadeLeftIn 0.5s ease forwards"
+        aboutTitle.style.animation = "fadeLeftIn 0.5s ease forwards"
+        aboutText.style.animation = "fadeLeftIn 0.5s ease forwards"
+      }, 500);
     })
 
 
 
-/*
+
     // --- Gestion du changement de langue ---
 const translations = {
   fr: {
@@ -148,7 +203,12 @@ const translations = {
     avis: "Avis clients",
     contacts: "Contacts",
     welcome_universe: "Bienvenue dans un nouvel univers,",
-    welcome_kroma: "Bienvenue chez <span id='animatedText'>Kroma</span>",
+    welcome_kroma: "Bienvenue chez <span id='animatedText'></span>",
+    aboutTitle : "Derrière le nom '<span id='animatedText'>Kroma</span>'",
+    aboutText : "Fondé avec une passion pour le design, l’innovation et de désir de créer quelque chose de grand, Kroma accompagne les entreprises et créateurs dans la construction de leur identité visuelle pour les permettre d’être plus grand aux yeux du monde. <br>Elle est une agence où créativité et efficacité se rencontrent. Ici, chaque projet est une aventure, chaque visuel raconte une histoire, et chaque site web est conçu pour captiver et convertir. Kroma c’est un partenaire qui accompagne ses clients pour que leur image reflète vraiment leur vision et attire l’attention qu’elle mérite. <br> Avec un mélange d’audace, de clarté et de passion, nous transformons les idées en réalisations mémorables...",
+    titleVision : "Notre vision",
+    titleMission: "Notre mission",
+    titleValuers: "Nos valeurs"
   },
   en: {
     accueil: "Home",
@@ -158,80 +218,36 @@ const translations = {
     avis: "Client reviews",
     contacts: "Contacts",
     welcome_universe: "Welcome to a new universe,",
-    welcome_kroma: "Welcome to <span id='animatedText'>Kroma</span>",
+    welcome_kroma: "Welcome to <span id='animatedText'></span>",
+    aboutTitle : "Behind the name '<span id='animatedText'>Kroma</span>'",
+    aboutText : "Founded with a passion for design, innovation, and a desire to create something great, Kroma supports businesses and creators in building their visual identity to help them stand out in the eyes of the world. <br>It is an agency where creativity and efficiency meet. Here, every project is an adventure, every visual tells a story, and every website is designed to captivate and convert. Kroma is a partner that helps its clients ensure their image truly reflects their vision and attracts the attention it deserves. <br> With a blend of boldness, clarity, and passion, we transform ideas into memorable achievements...",
+    titleVision: "Our vision",
+    titleMission : "Our mission",
+    titleValeurs: "Our values"
   }
 };
 
-let currentLang = "fr"; // langue par défaut
+    const imgReal = document.querySelector("#logoDesign")
+    const projectLogo = document.querySelector("#logoDesign #projects")
 
-// Fonction de traduction
-function setLanguage(lang) {
-  const elements = document.querySelectorAll("[data-lang]");
-  elements.forEach(el => {
-    const key = el.getAttribute("data-lang");
-    if (translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
-    }
-  });
-  currentLang = lang;
+    imgReal.addEventListener('click',()=>{
+      projectLogo.style.display = "block"
+      projectLogo.style.animation = "fadeLetIn 0.5s ease-in-out"
+    })
+
+    window.onload = function() {
+    document.getElementById("loader").style.display = "none";
+};
+function openMenu() {
+    document.getElementById("sidebar").style.left = "0";
+    document.getElementById("overlay").style.display = "block";
 }
-
-// --- Gestion du canevas pour le bouton langue ---
-const canvasLang = document.getElementById("language");
-const ctxLang = canvasLang.getContext("2d");
-canvasLang.width = 120;
-canvasLang.height = 60;
-
-function drawLanguageButton() {
-  ctxLang.clearRect(0, 0, canvasLang.width, canvasLang.height);
-
-  ctxLang.beginPath();
-  ctxLang.roundRect(0, 0, 120, 60, 30);
-  ctxLang.fillStyle = "#fff";
-  ctxLang.fill();
-
-  ctxLang.font = "bold 22px Oswald";
-  ctxLang.textAlign = "center";
-  ctxLang.textBaseline = "middle";
-  ctxLang.fillStyle = "#000";
-  ctxLang.fillText(currentLang.toUpperCase(), 60, 30);
+function closeMenu() {
+    document.getElementById("sidebar").style.left = "-250px";
+    document.getElementById("overlay").style.display = "none";
 }
-
-drawLanguageButton();
-
-// --- Animation du cercle lors du clic ---
-function animateLangCircle() {
-  let radius = 0;
-  let alpha = 0.6;
-
-  function draw() {
-    ctxLang.save();
-    ctxLang.clearRect(0, 0, canvasLang.width, canvasLang.height);
-    drawLanguageButton();
-
-    ctxLang.beginPath();
-    ctxLang.arc(60, 30, radius, 0, Math.PI * 2);
-    ctxLang.strokeStyle = `rgba(0, 0, 0, ${alpha})`;
-    ctxLang.lineWidth = 3;
-    ctxLang.stroke();
-
-    ctxLang.restore();
-
-    radius += 2;
-    alpha -= 0.02;
-    if (alpha > 0) requestAnimationFrame(draw);
-    else drawLanguageButton();
-  }
-  draw();
+function toggleSubmenu(event, submenuId) {
+    event.preventDefault();
+    var submenu = document.getElementById(submenuId);
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
 }
-
-// --- Événement clic sur le canevas ---
-canvasLang.addEventListener("click", () => {
-  animateLangCircle();
-
-  // Alterner entre FR et EN
-  const newLang = currentLang === "fr" ? "en" : "fr";
-  setLanguage(newLang);
-  drawLanguageButton();
-});
-*/

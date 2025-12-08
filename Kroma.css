@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap'); /* police pour #a-propos */
+
+@keyframes fadeLeftOut {
+    from{opacity: 100%;}
+    to{opacity: 0%; transform: translateX(30px);}
+}
+@keyframes fadeLeftIn {
+    from{opacity: 0%; transform: translateX(-30px);}
+    to{opacity: 100%; transform: translateX(0);}
+}
+@keyframes fadeLeftIn2 {
+    from{opacity: 0%; transform: translateX(0);}
+    to{opacity: 100%; transform: translateX(60px);}
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -22,7 +36,7 @@ body.light{
 section {
     display: flex;
     align-items: center;
-    scroll-margin-top: 150px;
+    scroll-margin-top: 100px;
 }
 #img{
     float: left;
@@ -50,12 +64,74 @@ header {
     left: 0;
     width: 100%; /* s’assurer qu’il couvre toute la largeur */
     z-index: 1000; /* au-dessus de #acceuil */
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.6) 50%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6)50%, rgba(0,0,0,0.6) 50%);
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     backdrop-filter: blur(15px) ;
 }
+
+/*propriétés du bouton 'menu' en mode mobile*/
+/*propriétés du menu vertical (mode bureau)*/
+.autre{ position: sticky; top: 0; z-index: 1500;}
+.sidebar {
+    height: 200vh;
+    width: 220px;
+    position: absolute;
+    top: 0;
+    left: -250px;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+    backdrop-filter: blur(15px) ;
+    padding-top: 60px;
+    transition: 0.3s;
+    color: white;
+    z-index: 2500;
+}
+.sidebar a {
+    padding: 20px 0px;
+    display: block;
+    color: #e4ab8e;
+    text-decoration: none;
+    font-size: 50%;
+}
+.sidebar a:hover {
+    background-color: #061753;
+}
+.open-btn {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    display: none;
+    position: sticky;
+    margin-top: -80px;
+    z-index: 1000;
+}
+/*propriétés de la barre verticale des liens*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1500;
+}
+.mode-desktop{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
 .mode{
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -78,13 +154,12 @@ header {
     height: 100vh;
     width: 100%;
     position: relative; /* ok */
-    background: url("img/Firefly_Génère moi une image avec du néon couleur violet bleu dans la nature 962653.jpg") no-repeat center center/cover;
+    background: url("img/LandingImage.jpg") no-repeat center center/cover;
     background-size: cover;
     display: flex;
     flex-direction: column;
     border-radius: 0 0 50% 50% / 0 0 10% 10%;
     z-index: 1; /* moins que header pour que menu reste au-dessus */
-    margin-top: 0; /* pas de marge */
 }
 .animation{
     font-family: 'oswald', sans-serif;
@@ -124,8 +199,8 @@ h1{
     font-size: 60px;
 }
 hr{
-    width: 20%;
-    height: 7px;
+  width: 10px;
+    height: 2px;
     background: linear-gradient(to right, #99037b, #1212d3 );
     border: none;
     border-radius: 100%;
@@ -216,7 +291,6 @@ hr{
   gap: 40px;
   flex-wrap: wrap;
 }
-#el p{color: #f3f3f3;}/* Couleur du texte dans les cartes */
 
 .card:hover {
   transform: translateY(-5px);
@@ -234,7 +308,7 @@ hr{
 
 
 /* --- Section principale --- */
-#Realisations {
+#realisations {
   display: flex;
   flex-direction: column;   /* disposition verticale */
   align-items: center;      /* centrer horizontalement */
@@ -245,144 +319,6 @@ hr{
   padding: 50px 0;
 
 }
-#realisation {
-  background-color: #0909a7;
-  width: 500px;   /* Largeur de la div */
-  height: 100px;  /* Hauteur de la div */
-  border-radius: 50px 0 50px 0;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.separator {
-  width: 80%;                     /* largeur du séparateur */
-  height: 3px;                    /* épaisseur de la ligne */
-  margin: 40px auto;              /* espace avant et après la ligne */
-  border-radius: 2px;             /* coins doux */
-
-}
-
-/* ===== Titre ===== */
-#realisation h1 {
- 
-text-align: center;            /* centre le texte */
-  font-size: 2.7em;                /* taille du texte */
-  letter-spacing: 5px;           /* espace entre les lettres */
-  line-height: 1.3em;            /* espace vertical entre les mots */
-  font-family: "Poppins", sans-serif;
-}
-
-/* ===== Conteneur des images ===== */
-#section-img {
-  position: relative;
-  width: 380px;
-  height: 800px;
-}
-
-/* ===== Style commun des cartes ===== */
-#section-img div {
-  position: absolute;
-  width: 100%;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-}
-
-#section-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ===== Positionnement des cartes ===== */
-
-/* Image du haut — même axe vertical que la 3ème */
-#img-1 {
-  top: 0;
-  left: 0;
-  z-index: 3;
-}
-
-/* Image du milieu — entre les deux, mais décalée vers la droite */
-#img-2 {
-  top: 280px;      /* un peu plus bas que 180px pour plus d'espacement */
-  left: 50px;      /* décalée vers la droite */
-  z-index: 2;
-}
-
-/* Image du bas — même position horizontale que la 1ère */
-#img-3 {
-  top: 560px;      /* même espace entre les images */
-  left: 0;
-  z-index: 1;
-}
-
-/* ===== Effet au survol ===== */
-#section-img div:hover {
-  transform: translateY(-12px) scale(1.05);
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
-  z-index: 10;
-}
-
-/* ===== Séparateur optionnel ===== */
-.separator {
-  width: 70%;
-  height: 3px;
-  margin: 60px auto;
-  border-radius: 2px;
-}
-#mini{
-    background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#mini h1{
-   
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* ===== Conteneur des cartes ===== */
-#dm-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 25px;                  /* espace horizontal entre les cartes */
-  flex-wrap: wrap;            /* s’adapte sur mobile */
-  padding: 60px 40px;
-  background-color: #f8f8f8;
-  font-family: "Poppins", sans-serif;
-}
-
-/* ===== Style général des cartes ===== */
-#dm {
-  flex: 1;
-  max-width: 280px;
-  min-height: 320px;
-  border-radius: 20px;
-  padding: 30px 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* ===== Effet de survol ===== */
-#dm:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
 /* ===== En-tête de chaque carte ===== */
 .card-title {
   display: flex;
@@ -391,29 +327,9 @@ text-align: center;            /* centre le texte */
   gap: 15px;
 }
 
-.card-title img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.card-title h3 {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin: 0;
-}
 
 /* ===== Texte des cartes ===== */
 #dm p {color: #ffffff;}/*
-.card {
-  flex: 1;
-  max-width: 280px;
-  background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%);
-  border-radius: 20px;
-  padding: 30px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}*/
 
 /* ===== Couleurs spécifiques ===== */
 .logos {
@@ -427,63 +343,201 @@ text-align: center;            /* centre le texte */
 .solutions {
   background-color: #31b594; /* vert turquoise */
 }
-.img-5 p, .img-6 p, .img-7 p, .img-8 p {
-    display: flex; /* Aligne les mots horizontalement */
-    font-size: 0.8em; /* Réduit la taille de la police */
-    margin: 0; /* Supprime les marges par défaut */
+
+
+
+    :root{--card:#ffffff;}
+
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:white; padding:12px 18px; border-radius:12px;
+      border:none; cursor:pointer; font-weight:700; box-shadow:0 14px 30px rgba(124,58,237,0.18); transform:translateY(0); transition:transform .18s ease;
+    }
+    .btn-primary:hover{ transform:translateY(-4px) }
+
+    .btn-ghost{
+      background: rgba(255,255,255,0.12); color:white; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* small cards under hero (Derrière le nom) */
+    .intro-cards{
+      display:flex; gap:14px; justify-content:center; margin-top:18px; flex-wrap:wrap;
+    }
+    .intro-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      padding:14px; border-radius:12px; min-width:220px; max-width:360px; text-align:left; color:rgba(255,255,255,0.9);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .intro-card h3{margin:0 0 8px 0; font-size:16px}
+    .intro-card p{margin:0; opacity:0.95; font-size:13px; color:rgba(255,255,255,0.85)}
+
+    /* ---------- Main content container ---------- */
+    .container{ max-width:1180px; margin:28px auto; padding:0 18px; }
+
+    /* Nos domaines d'expertise */
+    .domains-section{ margin-top:6px; display:flex; gap:20px; align-items:stretch; flex-wrap:wrap; justify-content:center; }
+    .domain-card{
+      border-radius:16px; min-width:220px; max-width:320px; padding:18px; color:white; box-shadow:var(--shadow); cursor:default;
+      transition:transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .domain-card:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 28px 60px rgba(10,10,20,0.12) }
+
+    .domain-1{ background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); color:var(--text) }
+    .domain-2{ background: linear-gradient(90deg, #7c3aed, #f43f5e); }
+    .domain-3{ background: linear-gradient(90deg, #06b6d4, #3b82f6); }
+
+    .domain-card h4{ margin:0 0 8px 0; font-size:16px; font-weight:700 }
+    .domain-card p{ margin:0; opacity:0.95; font-weight:500 }
+
+    /* ---------- Réalisations (gallery stack) ---------- */
+    .realisations{
+      margin-top:34px; padding:26px; border-radius:16px;;
+    }
+    #reaTitle{
+      background-color: #040f38;
+      border-radius: 10px 40px 10px 40px;
+      height: 75px;
+      width: 400px;
+      font-size: 200%;
+
+    }
+    #realisations h3{
+      color: #e4ab8e;
+      margin:0;
+      font-size: 50%;
+      font-weight:bolder;
+      padding-top: 10px;
+    }
+    #logoDesign img{
+      border-radius: 15px 70px 70px 15px;
+    }
+    #logoDesign #projects img{ border-radius: 10px; height: 100px; width: 100px;}
+    #projects{width: 400px; z-index: 100px; margin-top: -250px; display: none;}
+    #visuals img{
+      border-radius: 70px 15px 70px 15px;
+    }
+    /*Ici ce sont les statistiques actuelles de Kroma*/
+    .stat{
+      width: 100%;
+      background: linear-gradient(45deg, #e4b69f,#e4ab8e) ;
+      color: #fff;
+      font-size: 45%;
+      font-weight: bolder;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    /*Là ce sont les avis-cients*/
+    #avis{
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    #comment{
+      color: #fff;
+      font-size: 15px;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 12px;
+    }
+    #client{
+      margin: 10px;
+      width: 25%;
+      min-width: 250px;
+      flex-wrap: wrap;
+      border-radius: 20px;
+      border: 2px solid #e79572;
+      background:linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+    }
+    #name{
+      color: #e4ab8e;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: left;
+      margin-left: 20px;
+    }
     
-}
+    footer {
+      background:linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+      backdrop-filter: blur(15px);
+      color: #fff;
+    }
 
-.img-5 p span, .img-6 p span, .img-7 p span, .img-8 p span {
-    margin-right: 5px; /* Ajoute un espace entre les mots */
-}
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
 
-/* ===== SECTION MINI ===== */
-#mini.section-cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 80px;                       /* espace entre les blocs */
-  padding: 25px 0;
-  background: rgba(220, 220, 220, 0.7); /* fond gris clair avec transparence */
-  backdrop-filter: blur(10px);    /* effet de flou en arrière-plan */
-  font-family: "Poppins", sans-serif;
-}
+    .footer-section {
+      flex: 1 1 250px;
+    }
 
-/* ===== BLOCS INDIVIDUELS ===== */
-#mini .img-5,
-#mini .img-6,
-#mini .img-7,
-#mini .img-8 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* ===== IMAGES ===== */
-#mini img {
-  width: 55px;                     /* taille icônes */
-  height: auto;
-  margin-bottom: 8px;
-  filter: brightness(0);           /* icônes noires */
-}
+    .footer-logo img {
+      width: 200px;
+      height: 80px;
+    }
 
-/* ===== TEXTES ===== */
-#mini p {
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.4;
-}
+    .footer-logo h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
 
-/* pour l’espacement harmonieux entre les mots */
-#mini p span {
-  margin: 0 2px;
-}
+    .footer-section p {
+      margin-top: 0;
+      font-size: 0.85rem;
+    }
+
+    .footer-section a {
+      color: #e4ab8e;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      transform: translateX(7px);
+    }
+
+    .footer-section ul {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .footer-section li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section li::before {
+      content: "❯";
+      color: #fff;
+      margin-right: 8px;
+      font-size: 0.8rem;
+    }
+
+    .footer-socials {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-socials img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-socials img:hover {
+      transform: scale(1.1);
+    }
+
 @media (max-width:1280px){
 li a{
     padding: 15px;
@@ -501,7 +555,29 @@ hr{
     height: 7px;
 }
 #histoire{font-size: 18px;}
+.section-cards{flex-wrap: wrap;}
+.card-title h3 {font-size: 1.5rem;}
+.card {max-width: 180px; min-width: 150px;}
+.card p {font-size: 1rem;}
+.card img {
+  width: 40px;
+  height: 40px;
+}
 }
 @media (max-width:900px){
-
+li a{
+    text-decoration: none;
+    color: #e4ab8e;
+    padding: 20px;
+    font-size: 20px;
+    display: none;
+}
+    .open-btn { display: block; }
+    .overlay{display: none;}
+    header img{ margin-left: 75%;}
+    #onglet{border-radius: 0;}
+h1{font-size: 30px;}
+hr{width: 30%; height: 5px; margin-top: -10px;}
+.animation{font-size: 80%;}
+#histoire{font-size: 20px; text-align: center; width: 100%;}
 }
