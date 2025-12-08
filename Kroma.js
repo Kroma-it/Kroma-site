@@ -154,10 +154,11 @@ animateWord();
       const welcomeKroma = document.querySelector("#welcomeKroma")
       const aboutTitle = document.querySelector("h1")
       const aboutText = document.querySelector("#histoire")
+      /*
       const titleMission = document.querySelector(".card mission h1")
       const titleVision = document.querySelector(".card vision h1")
       const titleValeurs = document.querySelector(".card valeurs h1")
-      const el2 = document.querySelectorAll("h3")
+      const el2 = document.querySelectorAll("h3")*/
       
       const el = document.querySelector('#language')
       const attr = el.getAttribute("class")
@@ -167,7 +168,7 @@ animateWord();
       welcomeKroma.style.animation = 'fadeLeftOut 0.5s ease forwards'
       aboutTitle.style.animation = 'fadeLeftOut 0.5s ease forwards'
       aboutText.style.animation = 'fadeLeftOut 0.5s ease forwards'
-      el2.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      //el2.style.animation = 'fadeLeftOut 0.5s ease forwards'
       
 
       setTimeout(() => {
@@ -179,8 +180,8 @@ animateWord();
         contact.textContent = translations[attr].contacts
         welcomeUnivers.textContent = translations[attr].welcome_universe
         welcomeKroma.innerHTML = translations[attr].welcome_kroma
-        aboutTitle.innerHTML = translations[attr].aboutTitle
-        aboutText.innerHTML = translations[attr].aboutText
+        /*aboutTitle.innerHTML = translations[attr].aboutTitle
+        aboutText.innerHTML = translations[attr].aboutText*/
 
         ul.style.animation = 'fadeLeftIn 0.5s ease forwards'
         welcomeUnivers.style.animation = "fadeLeftIn 0.5s ease forwards"
