@@ -155,75 +155,51 @@
 
     </section>
 
-    
-    <!-- Nos réalisations -->
-    <!--<section class="realisations" aria-labelledby="realTitle" id="realisations">
-        <div id="reaTitle">
-          <h3 id="realTitle">Nos réalisations</h3>
-        </div>
-        <div style="opacity:.7">Voir tout →</div>
-
-      <div class="stack-wrap" aria-hidden="false">
-        <div class="stack" id="stack" aria-label="Galerie superposée">-->
-          <!-- 5 tiles - images from Unsplash (replace as needed) -->
-          <!--<div class="tile i0" data-index="0" tabindex="0" aria-label="Project A">
-            <img src="img/img flyers.png" alt="Project A">
-            <div class="chip">Project A</div>
-          </div>
-
-          <div class="tile i1" data-index="1" tabindex="0" aria-label="Project B">
-            <img src="img/img logo.png" alt="Project B">
-            <div class="chip">Project B</div>
-          </div>
-
-          <div class="tile i2" data-index="2" tabindex="0" aria-label="Project C">
-            <img src="img/img site.png" alt="Project C">
-            <div class="chip">Project C</div>
-          </div>
-
-          <div class="tile i3" data-index="3" tabindex="0" aria-label="Project D">
-            <img src="https://images.unsplash.com/photo-1508898578281-774ac4893a6b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f7e8b9a3c4d2e1f6a7b8c9d0e1f2a3b" alt="Project D">
-            <div class="chip">Project D</div>
-          </div>
-
-          <div class="tile i4" data-index="4" tabindex="0" aria-label="Project E">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d" alt="Project E">
-            <div class="chip">Project E</div>
-          </div>
-        </div>
-      </div>
-    </section>-->
-
-    <!-- LIGHTBOX (hidden initially) -->
-    <!-- <div id="lightbox" class="lightbox" aria-hidden="true">
-        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Aperçu image">
-        <button class="lb-arrow left" id="lbPrev" aria-label="Image précédente">◀</button>
-        <img id="lbImg" class="lightbox-img" src="" alt="Aperçu agrandi">
-        <button class="lb-arrow right" id="lbNext" aria-label="Image suivante">▶</button>
-        <button class="lb-close" id="lbClose" aria-label="Fermer la fenêtre">✕</button>
-        </div>
-    </div>-->
     <section id="realisations">
         <div id="reaTitle">
           <h3 id="realTitle">Nos réalisations</h3>
         </div>
 
         <div id="logoDesign">
-            <img src="img/img logo.png" onclick="openImg()" height="300px" width="300px" alt="">
+
+            <img src="img/img logo.png" onclick="openImg()" height="250px" width="250px" alt="">  
+
+            <div id="items">
+                <img src="img/lA.png" id="lA" onclick="PreviousImage()" alt="left arrow" srcset="">
+                <span onclick="CloseImages()" id="cross">&#10006;</span>
+                <img src="img/rA.png" id="rA" onclick="NextImage()" alt="right arrow" srcset="">
+            </div>
+
+            <div id="overlay2"></div>
+
             <div id="projects">
-                <img src="img/E-Concept.jpg" alt="">
-                <img src="img/E-Concept.jpg" alt="">
-                <img src="img/E-Concept.jpg" alt="">
-                <img src="img/E-Concept.jpg" alt="">
-                <img src="img/E-Concept.jpg" alt="">
-                <img src="img/E-Concept.jpg" alt="">
+                <img src="img/logos/E-Concept.jpg" onclick="DisplayImage(0, 'photo1')" alt="">
+                <img src="img/logos/logo1.jpg" onclick="DisplayImage(1, 'photo1')" alt="">
+                <img src="img/logos/E-Concept.jpg" onclick="DisplayImage(3, 'photo1')" alt="">
+                <img src="img/logos/E-Concept.jpg" onclick="DisplayImage(4, 'photo1')" alt="">
+                <img src="img/logos/E-Concept.jpg" onclick="DisplayImage(5, 'photo1')" alt="">
+                <img src="img/logos/E-Concept.jpg" onclick="DisplayImage(6, 'photo1')" alt="">
             </div>
         </div>
         <div id="webDesign">
-            <img src="img/img site.png" height="300px" width="300px" alt="">
+            <img src="img/img site.png" height="250px" width="250px" alt="">
         </div>
         <div id="visuals">
-            <img src="img/img flyers.png" height="300px" width="300px" alt="">
+            <img src="img/img flyers.png" height="250px" width="250px" alt="">
+            <div id="items">
+                <img src="images/lA.png" id="lA" onclick="PreviousImage()" alt="left arrow" srcset="">
+                <span onclick="CloseImages()" id="cross">&#10006;</span>
+                <img src="images/rA.png" id="rA" onclick="NextImage()" alt="right arrow" srcset="">
+            </div>
+            <div id="overlay2"></div>
+            <div id="projects2">
+                <img src="img/affiches/affiche1 copy.jpg" alt="">
+                <img src="img/affiches/surpriseEvent noel copy.jpg" alt="">
+                <img src="img/affiches/" alt="">
+                <img src="img/affiches/" alt="">
+                <img src="img/affiches/" alt="">
+                <img src="img/affiches/" alt="">
+            </div>
         </div>
     </section>
 
@@ -263,7 +239,7 @@
                  très satisfait par une équipe dynamique, qui m'a aidé pour une visibilité iconique et désigner
                   mon face de mon business
             </p>
-            <p id="name">M. Gianny FOAPA</p>
+            <p id="name">Mme DJOMBE Estelle</p>
         </div>
         <div id="client">
             <p id="comment">
@@ -275,55 +251,103 @@
         </div>
     </section>
     
-    <section id="contacts">
-        <!-- Footer -->
-        <footer>
-            <div class="footer-container">
+    <div class="forms-container">
+
+
+<!--FORMULAIRE 1-->
+<section id="formulaire">
+    
+    <div class="form-container">
+
+        <div class="form-section" style="float: left;" onsubmit="sendEmail(event)">
+            <form action="" method="post">
+                <input type="text" name="nom" id="fullName" placeholder=" Nom Complet" required style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
+                <input type="text" name="mail" id="email" placeholder=" Adresse Email" required style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
+                <br>
+                <input type="text" id="companyName" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 280px; background-color: #D9D9D9; border: none;">
+                <br>
+                <select name="service" id="service" style="border-radius: 7px; height: 35px; width: 280px; background-color: #D9D9D9;">
+                    <option value="" disabled selected> Choisissez un service</option>
+                    <option value="logos">Création de logos</option>
+                    <option value="visuels">Supports visuels</option>
+                    <option value="solutions">Solutions digitales</option>
+                    <option value="sites">Sites web</option>
+                </select>
+                <br><br>
+                <textarea name="" id="message" placeholder=" Parlez-nous de vos besoins" style="border-radius: 7px; height: 100px; width: 280px; background-color: #D9D9D9; border: none;"></textarea>
+                <br>
+                <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red; cursor: pointer; border: none;">
+            </form>
+        </div>
+
+<!--FORMULAIRE 2-->
+        <div class="form-section" style="float: right;" onsubmit="sendFeedback(event)">
+            <form action="" method="post">
+                <input type="text" id="fbName" name="nom" placeholder=" Nom Complet" style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
+                <input type="text" id="fbEmail" name="mail" placeholder=" Adresse Email" style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
+                <br>
+                <input type="text" id="fbCompany" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 280px; background-color: #D9D9D9; border: none;">
+                <br><br>
+                <textarea name="" id="fbMessage" placeholder=" Laissez un commentaire" style="border-radius: 7px; height: 150px; width: 280px; background-color: #D9D9D9; border: none;"></textarea>
+                <br>
+                <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red; cursor: pointer; border: none;">
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<section id="contacts">
+    
+    <footer>
+
+        <div class="footer-container">
 
             <!-- Bloc gauche -->
-                <div class="footer-section" id="texte">
-                    <div class="footer-logo">
-                        <img src="img/logoNom2.svg" alt="Logo Kroma" />
-                    </div>
-                    <p><strong>Adresse :</strong> Université de Yaoundé I, Cameroun</p>
-                    <p><strong>Email :</strong> <a href="mailto:kroma.agence@gmail.com">kroma.agence@gmail.com</a></p>
-
-                    <div class="footer-socials">
-                        <a href="#"><img src="img/linkedin.png" alt="LinkedIn" ></a>
-                        <a href="https://github.com/orgs/Kroma-it"><img src="img/github.png" alt="GitHub"></a>
-                        <a href="mailto:kroma.agence@gmail.com"><img src="img/gmail.png" alt="Gmail"></a>
-                    </div>
+            <div class="footer-section" id="texte">
+                <div class="footer-logo">
+                    <img src="img/logoNom2.svg" alt="Logo Kroma"/>
                 </div>
+                <p style="text-align: left; margin-left: 20px;"><strong>Adresse :</strong> Université de Yaoundé I, Cameroun</p>
+                <p style="text-align: left; margin-left: 20px;"><strong>Email :</strong> <a href="mailto:kroma.agence@gmail.com">kroma.agence@gmail.com</a></p>
+
+                <div class="footer-socials">
+                    <a href="#" style="margin-left: 20px;"><img src="img/linkedin.png" alt="LinkedIn" ></a>
+                    <a href="https://github.com/orgs/Kroma-it"><img src="img/github.png" alt="GitHub"></a>
+                    <a href="mailto:kroma.agence@gmail.com"><img src="img/gmail.png" alt="Gmail"></a>
+                </div>
+            </div>
 
             <!-- Bloc centre -->
             <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <ul>
-                <li><a href="#acceuil">Accueil</a></li>
-                <li><a href="#a-propos">À propos</a></li>
-                <li><a href="#domaines">Nos domaines</a></li>
-                <li><a href="#realiastions">Réalisations</a></li>
-                <li><a href="#avis">Avis-clients</a></li>
-                <li><a href="#contacts">Contacts</a></li>
+                <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Liens rapides</p>
+                <ul style="margin-left: 95px;">
+                    <li><a href="#acceuil">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#domaines">Nos domaines</a></li>
+                    <li><a href="#realiastions">Réalisations</a></li>
+                    <li><a href="#avis">Avis-clients</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
                 </ul>
             </div>
 
             <!-- Bloc droite -->
             <div class="footer-section">
-                <h3>Expertise</h3>
+                <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Expertise</p>
                 <ul>
-                <li><a href="#">Création de logos</a></li>
-                <li><a href="#">Supports visuels</a></li>
-                <li><a href="#">Conception de sites web</a></li>
-                <li><a href="#">Solutions digitales</a></li>
+                    <li><a href="#domaines">Création de logos</a></li>
+                    <li><a href="#domaines">Supports visuels</a></li>
+                    <li><a href="#domaines">Conception sites web</a></li>
+                    <li><a href="#domaines">Solutions digitales</a></li>
                 </ul>
             </div>
 
-            </div>
-        </footer>
+        </div>
+
+    </footer>
 
 
-    </section>
+</section>
 
     <script src="Kroma.js"></script>
 </body>

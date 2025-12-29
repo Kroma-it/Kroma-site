@@ -163,11 +163,11 @@ animateWord();
       const el = document.querySelector('#language')
       const attr = el.getAttribute("class")
       
-      ul.style.animation = 'fadeLeftOut 0.5s ease forwards'
-      welcomeUnivers.style.animation = 'fadeLeftOut 0.5s ease forwards'
-      welcomeKroma.style.animation = 'fadeLeftOut 0.5s ease forwards'
-      aboutTitle.style.animation = 'fadeLeftOut 0.5s ease forwards'
-      aboutText.style.animation = 'fadeLeftOut 0.5s ease forwards'
+      ul.style.animation = 'fadeRightOut 0.5s ease forwards'
+      welcomeUnivers.style.animation = 'fadeRightOut 0.5s ease forwards'
+      welcomeKroma.style.animation = 'fadeRightOut 0.5s ease forwards'
+      aboutTitle.style.animation = 'fadeRightOut 0.5s ease forwards'
+      aboutText.style.animation = 'fadeRightOut 0.5s ease forwards'
       //el2.style.animation = 'fadeLeftOut 0.5s ease forwards'
       
 
@@ -180,8 +180,8 @@ animateWord();
         contact.textContent = translations[attr].contacts
         welcomeUnivers.textContent = translations[attr].welcome_universe
         welcomeKroma.innerHTML = translations[attr].welcome_kroma
-        /*aboutTitle.innerHTML = translations[attr].aboutTitle
-        aboutText.innerHTML = translations[attr].aboutText*/
+        aboutTitle.innerHTML = translations[attr].aboutTitle
+        aboutText.innerHTML = translations[attr].aboutText
 
         ul.style.animation = 'fadeLeftIn 0.5s ease forwards'
         welcomeUnivers.style.animation = "fadeLeftIn 0.5s ease forwards"
@@ -251,4 +251,180 @@ function toggleSubmenu(event, submenuId) {
     event.preventDefault();
     var submenu = document.getElementById(submenuId);
     submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+}
+function openImg() {
+  const projects = document.getElementById("projects");
+
+  // Si la div est visible → on la cache avec animation
+  if (getComputedStyle(projects).display === "block") {
+    projects.style.animation = "fadeLeftOut 0.5s ease fowards";
+
+    // Attendre la fin de l’animation avant de cacher
+    setTimeout(() => {
+      projects.style.display = "none";
+    }, 500);
+
+  } 
+  // Sinon → on l’affiche avec animation
+  else {
+    projects.style.display = "block";
+    projects.style.animation = "fadeRightIn 0.5s ease-in-out";
+  }
+}
+
+
+/* ---------------------------------- VISIONNEUSE D'IMAGE-------------------------------------------*/
+function DisplayImage(index, containerId) {
+    const albumContainer = document.querySelectorAll(`#${containerId} img`);
+    const items = document.getElementById('items');
+    const overlay2 = document.getElementById('overlay2');
+    const img = `<img src="${albumContainer[index].src}">`;
+
+
+    overlay2.style.display = "block"
+    items.style.display = "flex";
+    
+    overlay2.innerHTML = img
+        const img2 = document.querySelector('#overlay2 img');
+        if (img) img2.style.animation = 'fadeUp 0.3s linear';
+    return albumContainer
+}
+
+function NextImage() {
+    // Trouver le conteneur actif en vérifiant quelle image est actuellement affichée
+    const currentSrc = document.querySelector('#overlay2 img').src;
+    
+    // Trouver dynamiquement tous les conteneurs d'images qui commencent par "photo"
+    const allPhotoContainers = document.querySelectorAll('[id^="photo"]');
+    
+    let albumContainer;
+    
+    // Parcourir tous les conteneurs pour trouver celui qui contient l'image actuelle
+    for (const container of allPhotoContainers) {
+        const images = container.querySelectorAll('img');
+        if ([...images].some(img => img.src === currentSrc)) {
+            albumContainer = images;
+            break;
+        }
+    }
+    
+    // Si aucun conteneur trouvé, utiliser le premier disponible
+    if (!albumContainer && allPhotoContainers.length > 0) {
+        albumContainer = allPhotoContainers[0].querySelectorAll('img');
+    }
+
+    const index = [...albumContainer].findIndex(img => img.src === currentSrc);
+    const overlay2 = document.getElementById('overlay2');
+    
+    // Vérifier si on est à la dernière image
+    if (index < albumContainer.length - 1) {
+        let nextImg = `<img src="${albumContainer[(index + 1)].src}" id="nextOverlayImg">`;
+        overlay2.innerHTML = nextImg;
+        
+        const img = document.querySelector('#overlay2 img');
+        if (img) img.style.animation = 'fadeLeft 0.3s linear';
+    }
+}
+function PreviousImage(){
+    // Trouver le conteneur actif en vérifiant quelle image est actuellement affichée
+    const currentSrc = document.querySelector('#overlay2 img').src;
+    
+    // Trouver dynamiquement tous les conteneurs d'images qui commencent par "photo"
+    const allPhotoContainers = document.querySelectorAll('[id^="photo"]');
+    
+    let albumContainer;
+    
+    // Parcourir tous les conteneurs pour trouver celui qui contient l'image actuelle
+    for (const container of allPhotoContainers) {
+        const images = container.querySelectorAll('img');
+        if ([...images].some(img => img.src === currentSrc)) {
+            albumContainer = images;
+            break;
+        }
+    }
+    
+    // Si aucun conteneur trouvé, utiliser le premier disponible
+    if (!albumContainer && allPhotoContainers.length > 0) {
+        albumContainer = allPhotoContainers[0].querySelectorAll('img');
+    }
+
+    const index = [...albumContainer].findIndex(img => img.src === currentSrc);
+    const overlay2 = document.getElementById('overlay2');
+    
+    // Vérifier si on est à la première image
+    if (index > 0) {
+        let nextImg = `<img src="${albumContainer[(index - 1)].src}">`;
+        overlay2.innerHTML = nextImg;
+        
+        const img = document.querySelector('#overlay2 img');
+        if (img) img.style.animation = 'fadeRight 0.3s linear';
+    }
+}
+
+function CloseImages() {
+    const items = document.getElementById('items');
+    const overlay2 = document.getElementById('overlay2');
+
+    overlay2.style.display = "none"
+    items.style.display = "none";
+}
+
+/*-------------envois des informations pour les services------------------------*/
+function sendEmail(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("fullName").value;
+  const email = document.getElementById("email").value;
+  const company = document.getElementById("companyName").value;
+  const service = document.getElementById("service").value;
+
+  const subject = "Demande de service - Kroma";
+
+  const body = `Bonjour l'agence Kroma,
+
+Je suis ${name}, de la compagnie ${company}.
+Je viens pour demander un service de ${service}.
+
+Vous pouvez me contacter à cette adresse : ${email}
+
+Cordialement,
+${name}`;
+
+  const mailtoLink = `mailto:kroma.agence@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+}
+
+
+/*--------------------------envoi d'information pour les feedback------------------------*/
+function sendFeedback(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("fbName").value;
+  const email = document.getElementById("fbEmail").value;
+  const company = document.getElementById("fbCompany").value;
+  const feedback = document.getElementById("fbMessage").value;
+
+  const subject = "Feedback client - Kroma";
+
+  const body = `Bonjour l'agence Kroma,
+
+Vous avez reçu un nouveau feedback.
+
+Nom : ${name}
+Email : ${email}
+Entreprise : ${company || "Non renseignée"}
+
+Feedback :
+${feedback}
+
+Cordialement,
+${name}`;
+
+  const mailtoLink =
+    `mailto:kroma.agence@gmail.com` +
+    `?subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
 }
