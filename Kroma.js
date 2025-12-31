@@ -377,13 +377,18 @@ function sendEmail(event) {
   const email = document.getElementById("email").value;
   const company = document.getElementById("companyName").value;
   const service = document.getElementById("service").value;
+  const message = document.getElementById("message").value;
 
   const subject = "Demande de service - Kroma";
 
   const body = `Bonjour l'agence Kroma,
 
 Je suis ${name}, de la compagnie ${company}.
+
 Je viens pour demander un service de ${service}.
+
+Voici les détails de ma demande :
+${message}
 
 Vous pouvez me contacter à cette adresse : ${email}
 
@@ -393,6 +398,7 @@ ${name}`;
   const mailtoLink = `mailto:kroma.agence@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   window.location.href = mailtoLink;
+  
 }
 
 

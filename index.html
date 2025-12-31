@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="z30OvwciSc-YkMmdYczM8i75pPNrA_O5PcRmWx3hEcc" />
     <link rel="stylesheet" href="Kroma.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +119,7 @@
                     <img src="img/logo logo.png" alt="Vision">
                     <h3>Création de logos</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Transformer les idées en visuels percutants qui suscitent l’émotion et l’engagement
                 </p>
             </div>
@@ -128,7 +129,7 @@
                     <img src="img/logo flyers.png" alt="Mission">
                     <h3>Supports visuels</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Offrir des solutions de design accessibles, modernes et adaptées à un client
                 </p>
             </div>
@@ -138,7 +139,7 @@
                     <img src="img/logo solution.png" alt="Valeurs">
                     <h3>Solutions digitales</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Créativité, authenticité et rapidité sont au cœur de chaque projet que nous réalisons
                 </p>
             </div>
@@ -147,7 +148,7 @@
                     <img src="img/logo site.png" alt="site">
                     <h3>Sites Web</h3>
                 </div>
-                <p>
+                <p id="texte">
                 Conception de sites modernes, responsives et adaptés à vos besoins professionnels
                 </p>
             </div>
@@ -215,7 +216,7 @@
         </div>
         <div id="experience" class="x">
             <img src="img/expérience.png" height="60px" width="60px" alt="">
-            <p>8 mois d'expériences</p>
+            <p>1 an d'expérience</p>
         </div>
         <div id="projets" class="x">
             <img src="img/projet.png" alt="" height="60px" width="60px" srcset="">
@@ -252,50 +253,43 @@
     </section>
     
     <div class="forms-container">
-
+<div class="forms-container">
 
 <!--FORMULAIRE 1-->
-<section id="formulaire">
-    
-    <div class="form-container">
-
-        <div class="form-section" style="float: left;" onsubmit="sendEmail(event)">
-            <form action="" method="post">
-                <input type="text" name="nom" id="fullName" placeholder=" Nom Complet" required style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
-                <input type="text" name="mail" id="email" placeholder=" Adresse Email" required style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
-                <br>
-                <input type="text" id="companyName" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 280px; background-color: #D9D9D9; border: none;">
-                <br>
-                <select name="service" id="service" style="border-radius: 7px; height: 35px; width: 280px; background-color: #D9D9D9;">
-                    <option value="" disabled selected> Choisissez un service</option>
-                    <option value="logos">Création de logos</option>
-                    <option value="visuels">Supports visuels</option>
-                    <option value="solutions">Solutions digitales</option>
-                    <option value="sites">Sites web</option>
-                </select>
-                <br><br>
-                <textarea name="" id="message" placeholder=" Parlez-nous de vos besoins" style="border-radius: 7px; height: 100px; width: 280px; background-color: #D9D9D9; border: none;"></textarea>
-                <br>
-                <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red; cursor: pointer; border: none;">
-            </form>
+    <form class="contact-form" onsubmit="sendEmail(event)">
+        <div class="row">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
         </div>
+
+        <input type="text" id="companyName" placeholder="Company Name" required>
+
+        <select id="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Conception de logos</option>
+            <option>Création de support visuel</option>
+            <option>Création d'identité complète</option>
+            <option>Conception de site web</option>
+        </select>
+        <textarea id="message" placeholder="Tell us about your needs"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+
 
 <!--FORMULAIRE 2-->
-        <div class="form-section" style="float: right;" onsubmit="sendFeedback(event)">
-            <form action="" method="post">
-                <input type="text" id="fbName" name="nom" placeholder=" Nom Complet" style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
-                <input type="text" id="fbEmail" name="mail" placeholder=" Adresse Email" style="border-radius: 10px; height: 30px; background-color: #D9D9D9; border: none;">
-                <br>
-                <input type="text" id="fbCompany" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 280px; background-color: #D9D9D9; border: none;">
-                <br><br>
-                <textarea name="" id="fbMessage" placeholder=" Laissez un commentaire" style="border-radius: 7px; height: 150px; width: 280px; background-color: #D9D9D9; border: none;"></textarea>
-                <br>
-                <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red; cursor: pointer; border: none;">
-            </form>
+    <form class="contact-form" onsubmit="sendFeedback(event)">
+        <div class="row">
+            <input type="text" id="fbName" placeholder="Full Name" required>
+            <input type="email" id="fbEmail" placeholder="Email Address" required>
         </div>
-    </div>
 
-</section>
+        <input type="text" id="fbCompany" placeholder="Company Name">
+
+        <textarea id="fbMessage" placeholder="Tell us about your feedback" required></textarea>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
 
 <section id="contacts">
     

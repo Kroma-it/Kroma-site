@@ -35,6 +35,8 @@ body.light{
   background: linear-gradient(to right, #e4ab8e, #f3f3f3, #e4ab8e);
   #texte{color:#061753;}
   #histoire{color:#061753;}
+  .stat{ background: linear-gradient(45deg,rgba(0,0,0,0.6)30%, rgba(0,0,0,0.7)50%);}
+  #comment{color: #061753;}
 }
 section {
     display: flex;
@@ -229,10 +231,6 @@ hr{
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 50px;
-  height: 50px;
-}
 
 /* Vision */
 .vision {
@@ -276,7 +274,7 @@ hr{
   display: flex;              /* aligne l'image et le texte sur la même ligne */
   align-items: center;        /* centre verticalement */
   justify-content: center;    /* centre le tout dans la carte */
-  gap: 10px;                  /* espace entre l’image et le titre */
+  gap: 0px;                  /* espace entre l’image et le titre */
   margin-bottom: 10px;
 }
 
@@ -299,11 +297,6 @@ hr{
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 50px;
-  height: 50px;
-}
-
 .card h3 {
   font-size: 1.6rem;
 }
@@ -315,12 +308,10 @@ hr{
   display: flex;
   flex-direction: column;   /* disposition verticale */
   align-items: center;      /* centrer horizontalement */
-  padding: 40px 0;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   padding: 50px 0;
-
 }
 /* ===== En-tête de chaque carte ===== */
 .card-title {
@@ -330,21 +321,29 @@ hr{
   gap: 15px;
 }
 
-
 /* ===== Texte des cartes ===== */
 #dm p {color: #ffffff;}/*
 
 /* ===== Couleurs spécifiques ===== */
 .logos {
-  background-color: #eab39b; /* rose pastel / saumon */
+  border: 2px solid #eab39b; /* rose pastel / saumon */
+}
+.logos h3 {
+  color: #eab39b;
 }
 
 .visuels {
-  background-color: #001b4d; /* bleu nuit profond */
+  border: 2px solid #f43f5e; /* bleu nuit profond */
+}
+.visuels h3 {
+  color: #f43f5e;
 }
 
 .solutions {
-  background-color: #31b594; /* vert turquoise */
+  border: 2px solid #31b594; /* vert turquoise */
+}
+.solutions h3 {
+  color: #31b594;
 }
 
 
@@ -477,7 +476,7 @@ hr{
     /*Ici ce sont les statistiques actuelles de Kroma*/
     .stat{
       width: 100%;
-      background: linear-gradient(45deg, #e4b69f,#e4ab8e) ;
+      background: linear-gradient(45deg,rgba(0,0,0,0.6)30%, rgba(0,0,0,0.7)50%); ;
       color: #fff;
       font-size: 45%;
       font-weight: bolder;
@@ -517,32 +516,74 @@ hr{
       text-align: left;
       margin-left: 20px;
     }
-
-#formulaire{
+.forms-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-    
-.form-container{
-  display: flex;
+  gap: 40px;
   justify-content: center;
-  align-items: stretch;
-  gap: 100px;
   flex-wrap: wrap;
 }
 
-.form-section{
-  display: inline-block;
-  width: 300px;
-  height: 400px;
-  min-width: 250px;
-  flex-wrap: wrap;
-  border-radius: 20px;
-  border: 2px solid #e79572;
-  background:linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+.contact-form {
+  background: linear-gradient(to top, rgba(0,0,0,0.7)30%, rgba(0,0,0,0.7)50%);
+      box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 18px;
+  width: 280px;
 }
+
+.contact-form .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 90%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #061753;
+  color: #fff;
+  font-size: 12px;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #dddddd9d;
+}
+
+.contact-form select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+  margin-top: 12px;
+}
+
+.contact-form button {
+  margin-top: 18px;
+  width: 120px;
+  padding: 10px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
     
 footer{
   background:linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
@@ -577,10 +618,12 @@ footer{
   text-decoration: none;
   font-size: 15px;
   font-weight: lighter;
+  transition: 0.3s;
 }
 
 .footer-section a:hover{
-  transform: translateX(7px);
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 .footer-section ul{
@@ -659,7 +702,7 @@ li a{
 }
 ul{margin: 0;}
 #img img{height: 70px; width: 110px;}
-canvas{transform: scale(0.4); margin-top: -20px;}
+canvas{transform: scale(0.4); margin-top: -20px; position: static;}
 header{height: 70px;}
 .animation{font-size: 120%;}
 #acceuil{border-radius: 0 0 50% 50% / 0 0 5% 5%;}
@@ -679,6 +722,7 @@ hr{
 }
 footer{flex-direction: column;}
 }
+
 @media (max-width:900px){
 li a{
     text-decoration: none;
