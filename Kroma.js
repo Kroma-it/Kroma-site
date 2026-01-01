@@ -9,52 +9,16 @@ if (document.querySelector("#language").getAttribute("class") === "fr") {
 }
 let currentWord = 0;
 
-function animateWord() {
-  const word = words[currentWord];
-  let index = 0;
-
-  // Apparition lettre par lettre
-  function typeLetter() {
-    if (index < word.length) {
-      textElement.textContent += word[index];
-      index++;
-      setTimeout(typeLetter, 150);
-    } else {
-      setTimeout(deleteLetter, 1000); // attendre avant de supprimer
-    }
-  }
-
-  // Disparition lettre par lettre
-  function deleteLetter() {
-    if (index > 0) {
-      textElement.textContent = word.slice(0, index - 1);
-      index--;
-      setTimeout(deleteLetter, 100);
-    } else {
-      // Passer au mot suivant
-      currentWord = (currentWord + 1) % words.length;
-      setTimeout(animateWord, 500);
-    }
-  }
-
-  typeLetter();
-}
-
-// Lancer l'animation
-animateWord();
-//FIN ANIMATION DE PAGE D'ACCEUIL
-
-
 //ANIMATION CHANGEMENT DE LANGUE
     const sun = new Image();
     const moon = new Image();
-    const france = new Image();
-    const uk = new Image();
+    //const france = new Image();
+    //const uk = new Image();
 
     sun.src = 'img/soleil1.png';
     moon.src = 'img/pleine-lune.png';
-    france.src = 'img/france.png';
-    uk.src = 'img/anglais.png';
+    //france.src = 'img/france.png';
+    //uk.src = 'img/anglais.png';
 
     class ToggleButton {
       constructor(canvas, icons, callback) {
