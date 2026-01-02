@@ -737,4 +737,5 @@ h1{font-size: 30px;}
 hr{width: 30%; height: 5px; margin-top: -10px;}
 .animation{font-size: 80%;}
 #histoire{font-size: 20px; text-align: center; width: 100%;}
+#pc{display: none;}
 }
