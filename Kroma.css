@@ -684,6 +684,10 @@ footer{
   /*background:linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%); */
 }
 
+#mob{
+  display: none;
+}
+
     /* Responsiveness for mobile */
     @media (max-width: 768px) {
       .footer-container {
@@ -719,7 +723,6 @@ hr{
   height: 40px;
 }
 footer{flex-direction: column;}
-#mob{display: none;}
 }
 
 @media (max-width:900px){
