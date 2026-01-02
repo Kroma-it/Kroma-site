@@ -719,6 +719,7 @@ hr{
   height: 40px;
 }
 footer{flex-direction: column;}
+#mob{display: none;}
 }
 
 @media (max-width:900px){
