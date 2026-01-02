@@ -254,411 +254,78 @@
             <option>Création d'identité complète</option>
             <option>Conception de site web</option>
         </select>
-<!DOCTYPE html>
+        <textarea id="message" placeholder="Tell us about your needs"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
 
-<html lang="en">
 
-    <head>
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Kroma.css">
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="icon" href="img/logo.svg">
-        <title>Kroma</title>
-
-    </head>
-
-    <body class="dark">
-
-        <header>
-            <div id="img">
-                <img src="img/logoNom.svg" height="100px" width="140px" alt="Logo">
-            </div>
-            <ul>
-                <li><a href="#acceuil" id="headAcceuil">Acceuil</a></li>
-                <li><a href="#a-propos" id="headPropos">A propos</a></li>
-                <li><a href="#domaines" id="headDomaine">Nos domaines</a></li>
-                <li><a href="#realisations" id="headRea">Réalisations</a></li>
-                <li><a href="#avis" id="headAvis">Avis-clients</a></li>
-                <li><a href="#contacts" id="headContact">Contacts</a></li>
-            </ul>
-            <div class="mode">
-                <canvas id="color" width="120" height="60"></canvas>
-                <canvas id="language" width="120" height="60" class="fr"></canvas>
-            </div>
-        </header>
-        
-        <button class="open-btn" onclick="openMenu()">☰ Menu</button>
-
-        <div class="autre">
-            <div class="overlay" onclick="closeMenu()" id="overlay"></div>
+<!--FORMULAIRE 2-->
+    <form class="contact-form" onsubmit="sendFeedback(event)">
+        <div class="row">
+            <input type="text" id="fbName" placeholder="Full Name" required>
+            <input type="email" id="fbEmail" placeholder="Email Address" required>
         </div>
 
-        <div class="autre">
-            <div class="sidebar" id="sidebar">
-                <a href="#acceuil" id="onglet">Accueil</a>
-                <a href="#a-propos">A propos</a>
-                <a href="#domaines">Nos domaines </a>
-                <a href="#realisations">Réalisations</a>
-                <a href="#avis">Avis clients</a>
-                <a href="#contacts">Contacts</a>
-            </div>
-        </div>
+        <input type="text" id="fbCompany" placeholder="Company Name">
 
-        <button class="open-btn" onclick="openMenu()">☰ Menu</button>
+        <textarea id="fbMessage" placeholder="Tell us about your feedback" required></textarea>
 
-        <div class="autre">
-            <div class="overlay" onclick="closeMenu()" id="overlay"></div>
-        </div>
+        <button type="submit">Envoyer</button>
+    </form>
 
-        <div class="autre">
-            <div class="sidebar" id="sidebar">
-                <a href="#acceuil">Accueil</a>
-                <a href="#a-propos">A propos</a>
-                <a href="#domaines">Nos domaines</a>
-                <a href="#realisations">Réalisations</a>
-                <a href="#avis">Avis clients</a>
-                <a href="#contacts">Contacts</a>
-            </div>
-        </div>
 
-        <section id="acceuil">
-            <div class="animation">
-                <div id="welcomeUnivers">Bienvenue dans un nouvel univers !</div>
-                <div id="welcomeKroma">Bienvenue chez <span id="animatedText"></span></div> !
-            </div>
-        </section>
+<section id="contacts">
+    
+    <footer>
 
-        <section id="a-propos">
+        <div class="footer-container">
 
-            <h1 style="margin-top: 80px;">Derrière le nom '<span id="animatedText">KROMA</span>'</h1><hr>
-
-            <p id="histoire">
-                Fondée avec une passion pour le design, l’innovation et le désir de créer quelque chose de grand, KROMA est une 
-                agence où créativité et efficacité se rencontrent. Elle accompagne les entreprises et créateurs dans 
-                la construction de leur identité visuelle pour leur permettre d’être plus grands aux yeux du monde. <br>
-                Ici, chaque projet est une aventure, chaque visuel raconte une histoire, et chaque site web est conçu pour captiver. 
-                Kroma n’est pas juste une startup, c’est un partenaire qui accompagne ses clients pour que leur image 
-                reflète vraiment leur vision et attire l’attention qu’elle mérite. <br>
-                Avec un mélange d’audace, de clarté et de passion, nous transformons les idées en réalisations mémorables...
-            </p>
-
-            <section class="section-cards">
-
-                <div id="el" class="card vision">
-                    <div class="card-title">
-                        <img src="img/vision.png" alt="Vision">
-                        <h3>Notre vision</h3>
-                    </div>
-                    <p id="texte">
-                        Transformer les idées en visuels percutants suscitant l’émotion et l’engagement.
-                    </p>
+            <!-- Bloc gauche -->
+            <div class="footer-section" id="texte">
+                <div class="footer-logo">
+                    <img src="img/logoNom2.svg" alt="Logo Kroma"/>
                 </div>
+                <p style="text-align: left; margin-left: 20px;"><strong>Adresse :</strong> Université de Yaoundé I, Cameroun</p>
+                <p style="text-align: left; margin-left: 20px;"><strong>Email :</strong> <a href="mailto:kroma.agence@gmail.com">kroma.agence@gmail.com</a></p>
 
-                <div id="el" class="card mission">
-                    <div class="card-title">
-                        <img src="img/objectif.png" alt="Mission">
-                        <h3>Notre mission</h3>
-                    </div>
-                    <p id="texte">
-                        Offrir des solutions de design accessibles, modernes et adaptées au client.
-                    </p>
+                <div class="footer-socials">
+                    <a href="#" style="margin-left: 20px;"><img src="img/linkedin.png" alt="LinkedIn" ></a>
+                    <a href="https://github.com/orgs/Kroma-it"><img src="img/github.png" alt="GitHub"></a>
+                    <a href="mailto:kroma.agence@gmail.com"><img src="img/gmail.png" alt="Gmail"></a>
                 </div>
-
-                <div id="el" class="card valeurs">
-                    <div class="card-title">
-                        <img src="img/valeur.png" alt="Valeurs">
-                        <h3>Nos valeurs</h3>
-                    </div>
-                    <p id="texte">
-                        Créativité, authenticité et rapidité au cœur de chacun de nos projets.
-                    </p>
-                </div>
-
-            </section>
-
-        </section>
-
-        <section id="domaines">
-
-            <h1 style="margin-top: 80px;">Nos domaines d'expertise</h1><hr>
-
-            <section class="section-cards">
-
-                <div id="dm" class="card logos">
-                    <div class="card-title">
-                        <img src="img/logo logo.png" alt="Vision">
-                        <h3>Création de logos</h3>
-                    </div>
-                    <p>
-                        Création de logos et identités visuelles uniques reflétant votre marque.
-                    </p>
-                </div>
-
-                <div id="dm" class="card visuels">
-                    <div class="card-title">
-                        <img src="img/logo flyers.png" alt="Mission">
-                        <h3>Supports visuels</h3>
-                    </div>
-                    <p>
-                        Conception de flyers attractifs et percutants pour promouvoir événements, offres ou services, avec un design clair et professionnel.
-                    </p>
-                </div>
-
-                <div id="dm" class="card solutions">
-                    <div class="card-title">
-                        <img src="img/logo solution.png" alt="Valeurs">
-                        <h3>Solutions digitales</h3>
-                    </div>
-                    <p>
-                        Développement d’outils et de solutions informatiques "extra" améliorant le design.
-                    </p>
-                </div>
-                <div id="dm" class="card logos">
-                    <div class="card-title">
-                        <img src="img/logo site.png" alt="site">
-                        <h3>Sites Web</h3>
-                    </div>
-                    <p>
-                        Conception de sites modernes, responsives et adaptés à vos besoins professionnels.
-                    </p>
-                </div>
-
-            </section>
-
-        </section>
-
-        
-        <!-- Nos réalisations -->
-        <!--<section class="realisations" aria-labelledby="realTitle" id="realisations">
-            <div id="reaTitle">
-            <h3 id="realTitle">Nos réalisations</h3>
-            </div>
-            <div style="opacity:.7">Voir tout →</div>
-
-        <div class="stack-wrap" aria-hidden="false">
-            <div class="stack" id="stack" aria-label="Galerie superposée">-->
-            <!-- 5 tiles - images from Unsplash (replace as needed) -->
-            <!--<div class="tile i0" data-index="0" tabindex="0" aria-label="Project A">
-                <img src="img/img flyers.png" alt="Project A">
-                <div class="chip">Project A</div>
             </div>
 
-            <div class="tile i1" data-index="1" tabindex="0" aria-label="Project B">
-                <img src="img/img logo.png" alt="Project B">
-                <div class="chip">Project B</div>
+            <!-- Bloc centre -->
+            <div class="footer-section" id="pc">
+                <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Liens rapides</p>
+                <ul style="margin-left: 95px;">
+                    <li><a href="#acceuil">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#domaines">Nos domaines</a></li>
+                    <li><a href="#realiastions">Réalisations</a></li>
+                    <li><a href="#avis">Avis-clients</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                </ul>
             </div>
 
-            <div class="tile i2" data-index="2" tabindex="0" aria-label="Project C">
-                <img src="img/img site.png" alt="Project C">
-                <div class="chip">Project C</div>
-            </div>
-
-            <div class="tile i3" data-index="3" tabindex="0" aria-label="Project D">
-                <img src="https://images.unsplash.com/photo-1508898578281-774ac4893a6b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5f7e8b9a3c4d2e1f6a7b8c9d0e1f2a3b" alt="Project D">
-                <div class="chip">Project D</div>
-            </div>
-
-            <div class="tile i4" data-index="4" tabindex="0" aria-label="Project E">
-                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d" alt="Project E">
-                <div class="chip">Project E</div>
-            </div>
-            </div>
-        </div>
-        </section>-->
-
-        <!-- LIGHTBOX (hidden initially) -->
-        <!-- <div id="lightbox" class="lightbox" aria-hidden="true">
-            <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Aperçu image">
-            <button class="lb-arrow left" id="lbPrev" aria-label="Image précédente">◀</button>
-            <img id="lbImg" class="lightbox-img" src="" alt="Aperçu agrandi">
-            <button class="lb-arrow right" id="lbNext" aria-label="Image suivante">▶</button>
-            <button class="lb-close" id="lbClose" aria-label="Fermer la fenêtre">✕</button>
-            </div>
-        </div>-->
-
-        <section id="realisations">
-
-            <div>
-                <h1 style="margin-top: 20px;">Nos réalisations</h1>
-            </div>
-
-            <div class="separator" ></div>
-            
-            <section id="section-img"  class="section-img" style="margin-top: -40px;">
-            <div id="img-1" class="img-1">
-                    <img src="img/img logo.png"  width="300px" height=" 400px"  alt="realisation">
-            </div>
-            <div class="separator"></div>
-            <div id="img-2" class="img-2">
-                    <img src="img/img flyers.png" width="300px" height="400px" alt="realisation">
-            </div>
-            <div class="separator"></div>
-            <div  class="img-3" id="img-3">
-                    <img src="img/img site.png" width="300px" height="400px" alt="realisation">
-            </div>
-
-            </section>
-
-            <div class="separator"></div>
-
-        </section>
-
-        <div class="stat">
-
-            <div id="satisfaits" class="x">
-                <img src="img/satisfaction.png" height="60px" width="60px" alt="">
-                <p>5 clients satisfaits</p>
-            </div>
-            <div id="experts" class="x">
-                <img src="img/experts.png" height="60px" width="60px" alt="">
-                <p>5 experts</p>
-            </div>
-            <div id="experience" class="x">
-                <img src="img/expérience.png" height="60px" width="60px" alt="">
-                <p>8 mois d'expérience</p>
-            </div>
-            <div id="projets" class="x">
-                <img src="img/projet.png" alt="" height="60px" width="60px" srcset="">
-                <p>8 projets réalisés</p>
+            <!-- Bloc droite -->
+            <div class="footer-section" id="pc">
+                <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Expertise</p>
+                <ul>
+                    <li><a href="#domaines">Création de logos</a></li>
+                    <li><a href="#domaines">Supports visuels</a></li>
+                    <li><a href="#domaines">Conception sites web</a></li>
+                    <li><a href="#domaines">Solutions digitales</a></li>
+                </ul>
             </div>
 
         </div>
-        
-        <!-- Clients -->
-        <section id="avis">
 
-            <div>
-            <h1 style="margin-top: 80px;">Avis Clients</h1>
-            </div>
-            
-            <div class="separator" ></div>
-
-            <section class="section-avis">
-
-                <div id="client">
-                    <p id="comment">
-                        Le flyer est propre, ça respecte assez les spécifications que je t’ai données pour la 
-                        réalisation. Aussi, les informations sont bien disposées et suffisamment lisibles. 
-                        Ça aurait pu être meilleur avec un 
-                        plus grand délai de livraison, mais ça a largement fait l’affaire.
-                    </p>
-                    <p id="name" style="margin-top: 45px; margin-left: -120px;">M. SIAKAM Krixian</p>
-                </div>
-                <div id="client">
-                    <p id="comment">
-                        Je trouve le concept très innovant. J'ai déjà eu à demander l'un de leurs services et j'ai été très 
-                        satisfait par une équipe dynamique, qui m'a aidé pour une visibilité iconique et désignée de mon business.
-                    </p>
-                    <br>
-                    <p id="name" style="margin-left: -95px;">Mme DJOMBE Estelle</p>
-                </div>
-                <div id="client"></div>
-
-            </section>
-
-            <div class="separator"></div>
-
-        </section>
-
-        <section id="formulaire">
-            
-            <div class="form-container">
-
-                <div class="form-section" style="float: left;">
-                    <form action="" method="post">
-                        <input type="text" name="nom" placeholder=" Nom Complet" style="border-radius: 10px; height: 30px; background-color: #D9D9D9;">
-                        <input type="text" name="mail" placeholder=" Adresse Email" style="border-radius: 10px; height: 30px; background-color: #D9D9D9;">
-                        <br>
-                        <input type="text" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 360px; background-color: #D9D9D9;">
-                        <br>
-                        <select name="service" style="border-radius: 7px; height: 35px; width: 365px; background-color: #D9D9D9;">
-                            <option value="" disabled selected> Choisissez un service</option>
-                            <option value="logos">Création de logos</option>
-                            <option value="visuels">Supports visuels</option>
-                            <option value="solutions">Solutions digitales</option>
-                            <option value="sites">Sites web</option>
-                        </select>
-                        <br><br>
-                        <textarea name="" id="" placeholder=" Parlez-nous de vos besoins" style="border-radius: 7px; height: 100px; width: 365px; background-color: #D9D9D9;"></textarea>
-                        <br>
-                        <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red;">
-                    </form>
-                </div>
-
-                <div class="form-section" style="float: right;">
-                    <form action="" method="post">
-                        <input type="text" name="nom" placeholder=" Nom Complet" style="border-radius: 10px; height: 30px; background-color: #D9D9D9;">
-                        <input type="text" name="mail" placeholder=" Adresse Email" style="border-radius: 10px; height: 30px; background-color: #D9D9D9;">
-                        <br>
-                        <input type="text" name="nom_compagnie" placeholder=" Nom de la Compagnie" style="border-radius: 10px; height: 30px; width: 360px; background-color: #D9D9D9;">
-                        <br><br>
-                        <textarea name="" id="" placeholder=" Laissez un commentaire" style="border-radius: 7px; height: 150px; width: 365px; background-color: #D9D9D9;"></textarea>
-                        <br>
-                        <input type="submit" value="Envoyer" style="border-radius: 7px; height: 35px; width: 100px; background-color: red;">
-                    </form>
-                </div>
-
-            </div>
-
-        </section>
-        
-        <section id="contacts">
-            
-            <footer>
-
-                <div class="footer-container">
-
-                    <!-- Bloc gauche -->
-                    <div class="footer-section" id="texte">
-                        <div class="footer-logo">
-                            <img src="img/logoNom2.svg" alt="Logo Kroma"/>
-                        </div>
-                        <p style="text-align: left; margin-left: 20px;"><strong>Adresse :</strong> Université de Yaoundé I, Cameroun</p>
-                        <p style="text-align: left; margin-left: 20px;"><strong>Email :</strong> <a href="mailto:kroma.agence@gmail.com">kroma.agence@gmail.com</a></p>
-
-                        <div class="footer-socials">
-                            <a href="#" style="margin-left: 20px;"><img src="img/linkedin.png" alt="LinkedIn" ></a>
-                            <a href="https://github.com/orgs/Kroma-it"><img src="img/github.png" alt="GitHub"></a>
-                            <a href="mailto:kroma.agence@gmail.com"><img src="img/gmail.png" alt="Gmail"></a>
-                        </div>
-                    </div>
-
-                    <!-- Bloc centre -->
-                    <div class="footer-section">
-                        <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Liens rapides</p>
-                        <ul style="margin-left: 95px;">
-                            <li><a href="#acceuil">Accueil</a></li>
-                            <li><a href="#a-propos">À propos</a></li>
-                            <li><a href="#domaines">Nos domaines</a></li>
-                            <li><a href="#realiastions">Réalisations</a></li>
-                            <li><a href="#avis">Avis-clients</a></li>
-                            <li><a href="#contacts">Contacts</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Bloc droite -->
-                    <div class="footer-section">
-                        <p style="font-size: 25px; font-weight: bold; margin-top: 50px;">Expertise</p>
-                        <ul>
-                            <li><a href="#domaines">Création de logos</a></li>
-                            <li><a href="#domaines">Supports visuels</a></li>
-                            <li><a href="#domaines">Conception sites web</a></li>
-                            <li><a href="#domaines">Solutions digitales</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </footer>
+    </footer>
 
 
-        </section>
+</section>
 
-        <script src="Kroma.js"></script>
-        
-    </body>
-
+    <script src="Kroma.js"></script>
+</body>
 </html>
